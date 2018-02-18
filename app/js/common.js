@@ -21,7 +21,7 @@ function sendData(modalCta) {
             //yId.reachGoal('ZAKAZANO');
         },
 
-        sendTelegram: function (data) { // отправляем почту через php
+        sendTelegram: function (data) { // отправляем в телегу
             var url = 'http://server.lime82.ru/sendTelegram.php';
             var xhr = new XMLHttpRequest();
             xhr.open('POST', url, true);

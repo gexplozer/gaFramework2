@@ -49,10 +49,10 @@
 	</nav>
 
 	<header>
-		<a href="https://penetron82.ru/">
-			<img id="logo" src="/img/img011.jpg" alt="Логотип Тильда-МЕД">
+		<a id="logo" href="https://penetron82.ru/">
+			<img src="/img/img011.jpg" alt="Логотип Тильда-МЕД">
 		</a>
-		<div class="apteki flex">
+		<div class="address">
 			<img src="/img/svg/map.svg">
 			<div>
 				<span>
@@ -62,9 +62,9 @@
 				<span>ул. Глинки 53А</span>
 			</div>
 		</div>
-		<div>
-			<a href="tel:+79788700056" class="telNumber" title="Телефон Пенетрон Крым">+7 (978) 87 000 56</a>
-			<p style="margin:0; text-align: right;">Доставка по Крыму. Звоните!.</p>
+		<div class="telNumber">
+			<a href="tel:+79788700056" title="Телефон Пенетрон Крым">+7 (978) 87 000 56</a>
+			<p style="margin:0; text-align: right;">Доставка по Крыму. Звоните!</p>
 		</div>
 	
 		<!--
@@ -189,7 +189,7 @@
 		<section id="msProduct" itemscope itemtype="http://schema.org/Product">
 			<div id="msGallery">
 				<div id="thumbsBox">
-					<div class="thumbs">
+					<div class="thumbs scrollable">
 						<img src="img/1173.jpg" alt="" title="" data-source="">
 						<img src="img/351.jpg" alt="" title="" data-source="">
 						<img src="img/3676.jpg" alt="" title="" data-source="">
@@ -200,6 +200,8 @@
 						<img src="img/3676.jpg" alt="" title="" data-source="">
 						<img src="img/41.jpg" alt="" title="" data-source="">
 					</div>
+					<button class="scrollBlockUp">UP</button>
+					<button class="scrollBlockDown">DOWN</button>
 				</div>
 				<img class="mainImg" src="img/1173.jpg" alt="" title="" itemprop="image">
 			</div>
@@ -275,7 +277,7 @@
 		</section>
 
 		<ul class="pageNavigatorPanel">
-			<li class="scrollButton" data-scrollto="body">
+			<li class="scrollButton" data-scrollto="header">
 				<i class="fi" data-icon="long-arrow-alt-up"></i> Наверх</li>
 			<li class="scrollButton" data-scrollto=".calculator">Калькулятор</li>
 			<li class="scrollButton" data-scrollto=".kakieZadachi">Варианты применения</li>
@@ -283,7 +285,7 @@
 			<li class="actionButton" data-title="Оставьте контакты и мы сами вам позвоним" data-button="ЗАКАЗАТЬ ЗВОНОК">Заказать звонок</li>
 		</ul>
 
-		<img id="scrollTop" class="scrollButton" data-scrollto="body" src="img/arrow-up.svg">
+		<img id="scrollTop" class="scrollButton" data-scrollto="header" src="img/arrow-up.svg">
 		
 		<section class="numeredCards">
 			<div class="card">
@@ -776,17 +778,18 @@
 
 	<footer itemscope itemtype="http://schema.org/Organization">
 		<span itemprop="name" hidden>Тильда-МЕД</span>
-		<div id="adresse" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-			<span>Адрес:</span>
-			<p itemprop="streetAddress">Крым, г. Симферополь, бульвар Франко 15</p>
+		<div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+			<strong>Адрес:</strong>
+			<p itemprop="streetAddress">Крым, г. Симферополь</p>
+			<p>улица Глинки 53А</p>
 	
 		</div>
-		<div id="workTime">
-			<span>Режим работы:</span>
-			<p class="weekand">с 9.00 до 17.00</p>
+		<div>
+			<strong>Режим работы:</strong>
+			<p>с 9.00 до 17.00</p>
 			<p>Выходные: Воскресенье</p>
 		</div>
-		<div id="contacts">
+		<div>
 			<a itemprop="telephone" href="tel:+79788324430" class="telNumber">
 				<i class="fi" data-icon="phone"></i> +7 (978) 83 244 30</a>
 			<a itemprop="telephone" href="tel:+79785676101" class="telNumber">

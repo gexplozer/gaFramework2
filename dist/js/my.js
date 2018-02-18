@@ -14,6 +14,7 @@ const fClick = function (el, handler) {
 }
 
 const EM = parseFloat(getComputedStyle(document.body).fontSize); // чтобы считать значения с em
+var translate = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     lazyload(); // прикручиваем ленивую загрузку всем изображениям с классом lazyload и data-src
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     //Прикручиваем всплывание видоса по клику на кнопку youtube
     fClick('.popup-youtube', function () {
-        modalYt.setContent('<iframe class="frameYT" src="https://www.youtube.com/embed/' + this.dataset.href + '?autoplay=1"></iframe>');
+        modalYt.setContent(`<iframe class="frameYT" src="https://www.youtube.com/embed/${this.dataset.href}?autoplay=1"></iframe>`);
         modalYt.open();
     });
 
@@ -59,13 +60,12 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         modalCta.open(); // и только после замены заголовка и кнопки, открываем модаль
     });
-
     const common = sendData(modalCta); // отправляем по аяксу введённые данные
 
     //Галерея со сменой главного изображения по клику на мини-копию
     fClick(".thumbs img", function () { // вешаем "клик" на все тамбы
         let src = this.getAttribute("src"); // считываем дата-аттрибут нажатого
-        this.parentNode.parentNode.querySelector(".mainImg").setAttribute("src", src); // меняем src главного изображения
+        this.parentNode.parentNode.parentNode.querySelector(".mainImg").setAttribute("src", src); // меняем src главного изображения
     })
 
     // Табы
@@ -104,6 +104,22 @@ document.addEventListener("DOMContentLoaded", function () {
         if (elem.style.maxHeight) { elem.style.maxHeight = null} // если блок открыт - закрываем
         else { elem.style.maxHeight = elem.scrollHeight + "px" } // высота показываемого блока
     })
+
+    //делаем кнопки прокрутки в галерее
+    fClick(".scrollBlockUp", function () {
+        let parent = this.parentNode;
+        let elem = qS('.scrollable', parent);
+        step = 120;
+        if (translate < 0) { translate += step };
+        elem.style.transform = `translateY(${translate}px)`;
+    });
+    fClick(".scrollBlockDown", function () {
+        let parent = this.parentNode;
+        let elem = qS('.scrollable', parent);
+        step = 120;
+        if (-translate < elem.scrollHeight - 3 * step) {translate -= step};
+        elem.style.transform = `translateY(${translate}px)`;
+    });
 
 
     function readSvg(file) {

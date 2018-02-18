@@ -208,11 +208,15 @@ fieldset {
     border: none;
 }
 
+.menuIcon {
+    display: none;
+}
+
 
 /* шапка */
 header {
     display: flex;
-    flex-direction: row;
+    flex-flow: row;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 5px 5px -5px #333;
@@ -221,26 +225,35 @@ header {
     opacity: .87;
     z-index: 50;
     width: var(--wrapperWidth);
+    width: 100%;
     max-width: 100%;
     margin: 0 auto;
-}
-
-.menuIcon {
-    display: none;
 }
 
 #logo {
     display: block;
     width: 180px;
+    max-width: 100%;
 }
 
-.apteki img {
+#logo img {
+    width: 100%;
+}
+
+.address {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.address img {
     display: block;
     width: 48px;
     margin-right: 10px;
 }
 
-.apteki span {
+.address span {
+    text-align: left;
     display: block;
 }
 
@@ -258,10 +271,10 @@ header {
     color: #45668e;
 }
 
-header .telNumber {
+header .telNumber a {
     display: block;
-    font-size: 3rem;
-    font-weight: 600;
+    font-size: 2.75rem;
+    font-weight: 700;
     text-decoration: none;
     color: var(--deepGreen);
 }
@@ -305,6 +318,20 @@ header .telNumber {
 #msGallery .mainImg {
     display: block;
     width: calc(100% - 64px - .5em);
+}
+
+.scrollable {
+    transition: all .2s ease-out; 
+}
+
+.scrollBlockUp {
+    position: absolute;
+    top: 480px;
+}
+
+.scrollBlockDown {
+    position: absolute;
+    top: 520px;
 }
 
 #thumbsBox {
@@ -1055,6 +1082,7 @@ header .telNumber {
 }
 
 .openBlock {
+    overflow: hidden;
     transition: all .2s ease-out;
     max-height: 0;
 }
@@ -1433,7 +1461,7 @@ blockquote {
         position: absolute;
         height: 6px;
         width: 100%;
-        background: var(--fontBlack);
+        background: #000;
         border-radius: 6px;
         opacity: 1;
         left: 0;
@@ -1459,7 +1487,7 @@ blockquote {
     .menuButton.openedMenu span:nth-child(1) {
         transform: rotate(45deg);
         top: -3px;
-        left: 5px;
+        left: 0;
     }
 
     .menuButton.openedMenu span:nth-child(2) {
@@ -1470,13 +1498,13 @@ blockquote {
     .menuButton.openedMenu span:nth-child(3) {
         transform: rotate(-45deg);
         top: 26px;
-        left: 5px;
+        left: 0;
     }
 
     .menuButton.arrowMenu span:nth-child(1) {
         transform: rotate(-45deg);
         width: 50%;
-        top: 36%;
+        top: 39%;
         left: 3px;
     }
 
@@ -1488,7 +1516,7 @@ blockquote {
     .menuButton.arrowMenu span:nth-child(3) {
         transform: rotate(45deg);
         width: 50%;
-        top: 44%;
+        top: 43%;
         left: 3px;
     }
 
@@ -1511,10 +1539,9 @@ blockquote {
     .menuWrapper {
         display: flex;
         flex-flow: row nowrap;
+        max-height: 0;
         width: 200vw;
-        overflow: hidden;
         box-shadow: var(--shadow);
-        margin-bottom: 2em;
         transition: all .2s ease-out;
     }
 
@@ -1601,17 +1628,30 @@ blockquote {
     }
 
     header {
-        flex-flow: column nowrap;
+        flex-flow: row nowrap;
+        align-items: flex-start;
         box-shadow: none;
+        min-height: 0;
     }
 
     header .telNumber {
-        font-size: 24px;
+        width: 75%;
     }
 
-    header > * {
-        margin-bottom: 1.5em;
-        text-align: center;
+    header .telNumber a {
+        font-size: 1.5em;
+        text-align: right;
+        line-height: 1em;
+        vertical-align: top;
+    }
+
+    .address {
+        display: none;
+    }
+
+    #logo {
+        width: 25%;
+        margin: 0;
     }
 
 
