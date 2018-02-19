@@ -6,7 +6,7 @@ function sendData(modalCta) {
         
         thankYou: function () { // Говорим спасибо и умираем
             var now = new Date(); // читаем дату
-            if (common.weekend.includes(now.getDay()) && !common.workTime.includes(now.getUTCHours()+3)) { // если часы нерабочие или выходной
+            if (common.weekend.includes(now.getDay()) || !common.workTime.includes(now.getUTCHours()+3)) { // если часы нерабочие или выходной
                 var message = `<h3>Ваша заявка принята.</h3>
                                 <p>К сожалению, сейчас мы не в офисе.</p>
                                 <p>Обязательно перезвоним вам в рабочее время (Пн - Пт с 9:00 до 17:00)</p>`; 

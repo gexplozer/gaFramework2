@@ -5,11 +5,6 @@
     "tasks": [
         {
             "type": "gulp",
-            "task": "browser-sync",
-            "problemMatcher": []
-        },
-        {
-            "type": "gulp",
             "task": "watch",
             "problemMatcher": []
         }
