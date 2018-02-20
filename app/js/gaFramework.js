@@ -126,9 +126,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	function readSvg(file) {
 		let rawFile = new XMLHttpRequest();
 		rawFile.open("GET", file, false);
+		rawFile.onload = function () {
+			if (rawFile.status == "200") {svg = rawFile.responseText
+			} else {svg = null}
+		};
 		rawFile.send(null);
-		let svg = rawFile.responseText;
-		if (svg) return svg;
+		if (svg) {return svg
+		} else {return ""}
 	}
     
 	window.onload = fqSA(".fi", function (svgIcon) {
@@ -147,11 +151,22 @@ document.addEventListener("DOMContentLoaded", function () {
 	const menuBox = qS(".menuBox");
 	const header = qS("header");
 
-	window.addEventListener("resize", function () {
-		let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-		(sW < 530) ? document.body.insertBefore(menuBox, header) : document.body.insertBefore(menuBox, qS("#wrapper"));
-	});
-	if (screen.width < 530) document.body.insertBefore(menuBox, header);
+	let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+	if (sW < 530) {
+		window.addEventListener("resize", function () {
+			let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+			(sW < 530) ? document.body.insertBefore(menuBox, header) : document.body.insertBefore(menuBox, qS("#wrapper"));
+		});
+		if (screen.width < 530) document.body.insertBefore(menuBox, header);
+		fClick(".hasSubmenu", function (e) {
+			e.preventDefault();
+			qS(".menuButton").classList.toggle("arrowMenu", "openedMenu");
+			document.body.scrollIntoView();
+			mobileSubmenu.innerHTML = this.innerHTML;
+			menuWrapper.style.transform = "translateX(-100vw)";
+			menuWrapper.style.maxHeight = (mobileSubmenu.children[1].scrollHeight + 5 * EM) + "px";
+		});
+	}
     
 
 	// клик по кнопке меню и её трансформация
@@ -185,14 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
-	fClick(".hasSubmenu", function(e) {
-		e.preventDefault();
-		qS(".menuButton").classList.toggle("arrowMenu","openedMenu");
-		document.body.scrollIntoView();
-		mobileSubmenu.innerHTML = this.innerHTML;
-		menuWrapper.style.transform = "translateX(-100vw)";
-		menuWrapper.style.maxHeight = (mobileSubmenu.children[1].scrollHeight + 5 * EM) + "px";
-	});
+	
 
     
 });
