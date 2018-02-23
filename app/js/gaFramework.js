@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		else { elem.style.maxHeight = elem.scrollHeight + "px"; } // высота показываемого блока
 	});
 
-	//делаем кнопки прокрутки в галерее
+	// делаем кнопки прокрутки в галерее
 	fClick(".scrollBlockUp", function () {
 		let parent = this.parentNode;
 		let elem = qS(".scrollable", parent);
@@ -127,12 +127,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		let rawFile = new XMLHttpRequest();
 		rawFile.open("GET", file, false);
 		rawFile.onload = function () {
-			if (rawFile.status == "200") {svg = rawFile.responseText
-			} else {svg = null}
+			if (rawFile.status == "200") {svg = rawFile.responseText;
+			} else {svg = null;}
 		};
 		rawFile.send(null);
-		if (svg) {return svg
-		} else {return ""}
+		if (svg) {return svg;
+		} else {return "";}
 	}
     
 	window.onload = fqSA(".fi", function (svgIcon) {
@@ -144,20 +144,32 @@ document.addEventListener("DOMContentLoaded", function () {
 		svgIcon.parentNode.replaceChild(newSvg, svgIcon);
 	});
 
-	// переставляем меню вверх страницы
 	const mobileSubmenu = qS(".mobileSubmenu");
 	const menuWrapper = qS(".menuWrapper");
 	const mainMenu = qS(".mainMenu");
 	const menuBox = qS(".menuBox");
 	const header = qS("header");
 
+	// добавление стрелки вправо к пунктам с подменюшкой
+	const folderIcon = readSvg("/img/fa/angle-right.svg");
+	fqSA(".mainMenu>li", function (elem) {
+		if (elem.querySelector("ul")) {
+			elem.classList.add("hasSubmenu");
+			let newSvg = document.createElement("span");
+			newSvg.innerHTML = folderIcon;
+			newSvg.classList.add("menuIcon");
+			elem.appendChild(newSvg);
+		}
+	});
+
+	// переставляем меню вверх страницы
 	let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 	if (sW < 530) {
 		window.addEventListener("resize", function () {
 			let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 			(sW < 530) ? document.body.insertBefore(menuBox, header) : document.body.insertBefore(menuBox, qS("#wrapper"));
 		});
-		if (screen.width < 530) document.body.insertBefore(menuBox, header);
+		document.body.insertBefore(menuBox, header);
 		fClick(".hasSubmenu", function (e) {
 			e.preventDefault();
 			qS(".menuButton").classList.toggle("arrowMenu", "openedMenu");
@@ -182,25 +194,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		} else if (cL.contains("openedMenu")) {
 			cL.remove("arrowMenu", "openedMenu");
 			elem.style.maxHeight = "0";
+			menuBox.classList.toggle("menuBoxOpened");
 		} else {
 			cL.add("openedMenu");
+			menuBox.classList.toggle("menuBoxOpened");
 			elem.style.maxHeight = mainMenu.scrollHeight + "px";
 		}
 	});
-
-	// добавление стрелки вправо к пунктам с подменюшкой
-	const folderIcon = readSvg("/img/fa/angle-right.svg");
-	fqSA(".mainMenu>li", function (elem) {
-		if (elem.querySelector("ul")) {
-			elem.classList.add("hasSubmenu");
-			let newSvg = document.createElement("span");
-			newSvg.innerHTML = folderIcon;
-			newSvg.classList.add("menuIcon");
-			elem.appendChild(newSvg);
-		}
-	});
-
-	
-
-    
 });
