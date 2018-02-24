@@ -302,6 +302,7 @@ header .telNumber a {
 #msProduct {
     display: flex;
     flex-flow: row nowrap;
+    margin-bottom: 3em;
 }
 
 #msGallery {
