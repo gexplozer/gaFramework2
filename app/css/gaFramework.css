@@ -882,7 +882,7 @@ header .telNumber a {
     flex-flow: column;
     align-items: center;
     justify-content: center;
-    margin: 0 0 66px;
+    margin: 0 0 2em;
     width: 100vw;
     margin-left: calc((-100vw + var(--wrapperWidth))/2);
     padding-bottom: 44px;
@@ -890,17 +890,19 @@ header .telNumber a {
 }
 
 .wideCtaBlock h2 {
-    margin-bottom: 22px;
+    margin-bottom: 0;
     color: var(--fontWhite);
     text-align: center;
 }
 
 .wideCtaBlock h3 {
+    font-family: "Roboto";
     text-align: center;
     margin-top: 0;
-    font-size: 24px;
+    font-size: 1.25em;;
+    font-weight: 100;
     color: var(--fontWhite);
-    opacity: .8
+    opacity: .8;
 }
 
 .wideCtaBlock .forma {
@@ -1202,11 +1204,17 @@ footer a span {
     color: var(--deepMain);
 }
 
+i.fi {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+
 span.fi {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    vertical-align: middle;
+    vertical-align: -.125em;
 }
 
 .fi svg {
@@ -1214,12 +1222,6 @@ span.fi {
     margin: 0 auto;
     height: 1em;
     fill: currentColor;
-}
-
-i.fi {
-    display: block;
-    width: 1em;
-    height: 1em;
 }
 
 .article {
@@ -1701,6 +1703,7 @@ blockquote {
     /* Продукт с большими и мини-изображениями*/
     #msProduct {
         flex-flow: column wrap;
+        margin-bottom: 3em;
     }
 
     #msGallery {

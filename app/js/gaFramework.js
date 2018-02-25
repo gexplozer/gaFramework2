@@ -52,12 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
 	fClick(".FAQ span, .openCta, .actionButton", function (e) {
 		e.preventDefault();
 		modalCta.setContent(qS(".inlineCtaBlock").innerHTML); // берём html формы из узла на странице
+		function insertCta(title,button) {
+			qS(".ctaTingle form .ctaRequest").value = `${title} | ${button}`;
+			qS(".ctaTingle form h3").innerHTML = title;
+			qS(".ctaTingle form button").innerHTML = button;
+		}
 		if (this.dataset.title && this.dataset.button) { // если нажатая кнопка имеет заголовок и кнопку для формы, считываем
-			qS(".ctaTingle form h3").innerHTML = this.dataset.title;
-			qS(".ctaTingle form button").innerHTML = this.dataset.button;
+			insertCta(this.dataset.title, this.dataset.button);
 		} else if (this.querySelector("h3")) { // если у нажатого блока есть свои h3 и кнопка, берём их
-			qS(".ctaTingle form h3").innerHTML = this.querySelector("h3").innerHTML;
-			qS(".ctaTingle form button").innerHTML = this.querySelector("button").innerHTML;
+			insertCta(this.querySelector("h3").innerHTML, this.querySelector("button").innerHTML);
 		}
 		modalCta.open(); // и только после замены заголовка и кнопки, открываем модаль
 	});
