@@ -43,6 +43,7 @@ function sendData(modalCta) {
 					data = new FormData(this); // вместо serialize на jQuery
 					data.append("site", window.location.hostname);
 					data.append("url", window.location.href); // url
+					data.append("pagetitle", qS("title").innerHTML); // url
 					common.sendEmail(data);
 					common.sendTelegram(data);
 				});
