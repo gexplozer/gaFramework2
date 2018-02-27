@@ -22,7 +22,7 @@ function sendData(modalCta) {
 		},
 
 		sendTelegram: function (data) { // отправляем в телегу
-			var url = "http://server.lime82.ru/sendTelegram.php";
+			var url = "/sendTelegram.php";
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", url, true);
 			xhr.send(data);
@@ -30,7 +30,7 @@ function sendData(modalCta) {
 		},
 
 		sendEmail: function (data) { // отправляем почту через php
-			var url = "http://modx.penetron82.ru/email.php";
+			var url = "/email.php";
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", url, true);
 			xhr.send(data);

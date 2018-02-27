@@ -412,7 +412,7 @@ header .telNumber a {
     min-height: 360px;
     margin-left: calc((-100vw + var(--wrapperWidth))/2);
     color: var(--fontWhite);
-    background-color: var(--btnBlue);
+    background-color: var(--deepMain);
     background-position: center center;
     background-blend-mode: multiply;
     background-size: cover;
@@ -945,6 +945,7 @@ header .telNumber a {
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 4em;
 }
 
 .imgRightSide {
@@ -978,6 +979,14 @@ header .telNumber a {
     font-size: 1.25em;
     padding-right: .5em;
     color: var(--deepMain);
+}
+
+.imgSideBlock .sideContent {
+    padding: 0 15% 0 0;
+}
+
+.imgRightSide .sideContent {
+    padding: 0 0 0 15%;
 }
 
 
