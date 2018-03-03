@@ -981,14 +981,6 @@ header .telNumber a {
     color: var(--deepMain);
 }
 
-.imgSideBlock .sideContent {
-    padding: 0 15% 0 0;
-}
-
-.imgRightSide .sideContent {
-    padding: 0 0 0 15%;
-}
-
 
 /* Табы */
 .tabs {
@@ -1331,7 +1323,7 @@ blockquote {
 }
 
 
-/* Телефоны (портрет) */
+/* Всё кроме телефонов */
 @media (min-width : 521px) {
     /* Меню наверху - главное */
     .mainMenu {
@@ -1395,6 +1387,14 @@ blockquote {
 
     li:hover>.subMenu {
         display: block;
+    }
+
+    .imgSideBlock .sideContent {
+        padding: 0 15% 0 0;
+    }
+
+    .imgRightSide .sideContent {
+        padding: 0 0 0 15%;
     }
 }
 

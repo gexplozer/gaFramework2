@@ -15,6 +15,7 @@ function sendData(modalCta) {
 				timeOut = 7000;
 			}
 			modalCta.open();
+			common.callback();
 			modalCta.setContent(message); // Отправили сообщение юзеру
 			setTimeout(function() {modalCta.close();}, timeOut);
 			//var yId = "yaCounter45210351";
