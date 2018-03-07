@@ -78,10 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
 		fqSA(".accTitle", function (el) { el.classList.remove("active"); }, thisParent); // удаляем у всех класс "актив"
 		elem = this.nextElementSibling; // paragraph, который сейчас надо показать
 		if (elem.style.maxHeight) { // если блок итак раскрыт, то закрываем его и все остальные
-			fqSA(".accTitle+p", function (el) { el.style.maxHeight = null; }, thisParent);
+			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, thisParent);
             
 		} else { // если блок закрыт - раскрываем, закрывая попутно все остальные
-			fqSA(".accTitle+p", function (el) { el.style.maxHeight = null; }, thisParent);
+			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, thisParent);
 			elem.style.maxHeight = elem.scrollHeight + "px"; // высота показываемого блока
 			elem.previousElementSibling.classList.add("active"); // добаляем нажатому иконку "минус"
 		}

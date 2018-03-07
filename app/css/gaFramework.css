@@ -1042,7 +1042,7 @@ header .telNumber a {
     list-style: none;
 }
 
-.accordion li {
+.accordion > li {
     overflow: hidden;
 }
 
@@ -1062,7 +1062,7 @@ header .telNumber a {
     color: var(--fontBlack);
 }
 
-.accTitle + p {
+.accTitle + div {
     transition: all .2s ease-out;
     max-height: 0;
     margin: 0;
