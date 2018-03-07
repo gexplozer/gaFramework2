@@ -837,6 +837,7 @@ header .telNumber a {
 .ctaBlock input, .forma input {
     text-align: center;
     border: none;
+    width: 16em;
 }
 
 .ctaBlock:hover input {
@@ -852,10 +853,15 @@ header .telNumber a {
     padding-bottom: 1em;
 }
 
-.tingle-modal-box .btn {
+.ctaBlock button {
+    display: block;
+    margin: .3em auto 0;
+}
+
+.tingle-modal-box button {
     padding: .8em 1.4em;
-    color: var(--deepThird);
-    border-color: var(--deepThird);
+    color: var(--fontWhite);
+    background-color: var(--deepThird);
 }
 
 .tingle-modal-box .ctaBlock:hover .btn {

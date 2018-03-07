@@ -18,15 +18,14 @@ let a = [];
 let size = [];
 
 var promise = new Promise((resolve => {
-	qS(".async").style.width = "550px";
+	qS(".async").style.width = "0px";
 	setTimeout(() => { resolve();}, 0);
-	
 }));
 
 let i = 40;
 
 async function getRndImg() {
-	return new Promise (resolve => {
+	return new Promise (function(resolve) {
 		i++;
 		let newImg = document.createElement('img');
 		let url = `https://jsonplaceholder.typicode.com/photos/${i}`;
@@ -51,7 +50,7 @@ async function getRndImg() {
 	await getRndImg();
 	await getRndImg();
 })();
-/*
+
 promise
 	.then(() => { return getRndImg() })
 	.then(() => { return getRndImg() })
@@ -59,4 +58,4 @@ promise
 	.then(() => { return getRndImg() })
 	.then((suka) => {
 		console.log(suka);
-	});*/
+	});
