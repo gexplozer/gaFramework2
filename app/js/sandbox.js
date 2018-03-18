@@ -12,7 +12,7 @@
 
 let f480 = new ferrari();
 f480.move();*/
-
+/*
 qS = function (el) { return document.querySelector(el); };
 let a = [];
 let size = [];
@@ -59,3 +59,47 @@ promise
 	.then((suka) => {
 		console.log(suka);
 	});
+	*/
+let vert = 550;
+let horizon = 1100;
+
+
+document.querySelector("button").addEventListener("click", () => {
+	rectum();
+});
+function rectum() {
+	for (let i = 0; i < 10; i++) {
+		let rand = Math.random();
+		let newEl = document.createElement("div");
+		newEl.classList.add("rect");
+		newEl.style.top = vert * Math.random() + "px";
+		newEl.style.left = horizon * Math.random() + "px";
+		document.body.appendChild(newEl);
+	}
+	setTimeout(function() {
+		document.querySelectorAll('.rect').forEach(elem => {
+			elem.classList.add("boom");
+			setTimeout(function() {
+				elem.remove();
+			}, 1000);
+		});
+	}, 1000);
+}
+
+function b() {
+	function b() {
+		var b = function () {
+			console.log('шарик находится');
+			console.log(b);
+			b = 'под калпачком 3';
+		};
+
+		return b;
+	}
+
+	b = b();
+	b();
+	b = 'под калпачком 2';
+}
+b();
+var b = 'под калпачком 1';

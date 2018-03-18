@@ -274,7 +274,8 @@ header .telNumber a {
     font-size: 2.75rem;
     font-weight: 700;
     text-decoration: none;
-    color: var(--deepThird);
+		color: var(--deepThird);
+		text-align: right;
 }
 
 .breadcrumbs {
