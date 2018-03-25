@@ -86,20 +86,12 @@ function rectum() {
 	}, 1000);
 }
 
-function b() {
-	function b() {
-		var b = function () {
-			console.log('шарик находится');
-			console.log(b);
-			b = 'под калпачком 3';
-		};
-
-		return b;
-	}
-
-	b = b();
-	b();
-	b = 'под калпачком 2';
+let xhr = new XMLHttpRequest;
+xhr.open("GET", 'data.json', true);
+xhr.send();
+xhr.onload = function () { // (3)
+	if (xhr.readyState != 4) return;
+	//let data = JSON.parse(xhr.responseText);
+	
+	document.body.innerHTML = xhr.responseText;
 }
-b();
-var b = 'под калпачком 1';

@@ -526,7 +526,8 @@ header .telNumber a {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
-    align-items: stretch;
+		align-items: stretch;
+		margin-bottom: 4em;
     justify-content: space-between;
     max-width: var(--wrapperWidth);
 }
@@ -831,7 +832,7 @@ header .telNumber a {
     margin: 0 auto;
 }
 
-.ctaTingle .tingle-modal-box {
+.ctaTingle .tingle-modal-box, .modalCalc .tingle-modal-box {
     max-width: 570px;
 }
 
@@ -952,7 +953,7 @@ header .telNumber a {
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 4em;
+    margin: 3em 0 4em 0;
 }
 
 .imgRightSide {
@@ -965,7 +966,7 @@ header .telNumber a {
 
 .imgSideBlock p {
     margin-bottom: 22px;
-    width: 80%;
+    width: 100%;
 }
 
 .imgSideBlock div {
