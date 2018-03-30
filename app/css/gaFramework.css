@@ -54,7 +54,8 @@ h1, h2 {
     display: block;
     position: relative;
     font-weight: 200;
-    z-index: 10;
+		z-index: 10;
+		color: var(--fontBlack);
 }
 
 span, .pageNavigatorPanel *, .ctaBlock * {
@@ -420,6 +421,7 @@ header .telNumber a {
 }  
 
 .fullScreenBlock h2 {
+    color: var(--fontWhite);
     font-size: 52px;
     font-weight: 100;
     text-align: center;
@@ -436,6 +438,43 @@ header .telNumber a {
 .fullScreenBlock p {
     text-align: center;
     max-width: 60%;
+}
+
+/* Блок на вcю ширину, поддерживается background-img */
+.wideScreenBlock {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: flex-end;
+    width: 100vw;
+    height: 37vw;
+    margin-left: calc((-100vw + var(--wrapperWidth))/2);
+    color: var(--fontBlack);
+    background-color: transparent;
+    background-position: center left;
+    background-blend-mode: multiply;
+    background-size: cover;
+}  
+
+.wideScreenBlock>div {
+	margin: 0 5% 0 0;
+}
+
+.wideScreenBlock h2, .wideScreenBlock h3 {
+	font-family: "Oswald", Arial, sans-serif;
+	text-align: right;
+	padding: 0;
+	margin: 0;
+}
+
+.wideScreenBlock h2 {
+    font-size: 5em;
+    font-weight: 400;
+}
+
+.wideScreenBlock h3 {
+    font-size: 3em;
+		font-weight: 100;
 }
 
 
@@ -1768,7 +1807,44 @@ blockquote {
         font-size: 2em;
         padding: 0;
         width: 90%;
-    }
+		}
+		
+	/* Блок на вcю ширину, поддерживается background-img */
+	.wideScreenBlock {
+			display: flex;
+			justify-content: center;
+			flex-flow: column;
+			align-items: flex-end;
+			width: 100vw;
+			height: 37vw;
+			margin-left: calc((-100vw + var(--wrapperWidth))/2);
+			color: var(--fontBlack);
+			background-color: transparent;
+			background-position: center left;
+			background-blend-mode: multiply;
+			background-size: cover;
+	}  
+
+	.wideScreenBlock>div {
+		margin: 0 5% 0 0;
+	}
+
+	.wideScreenBlock h2, .wideScreenBlock h3 {
+		font-family: "Oswald", Arial, sans-serif;
+		text-align: right;
+		padding: 0;
+		margin: 0;
+	}
+
+	.wideScreenBlock h2 {
+			font-size: 1em;
+			font-weight: 700;
+	}
+
+	.wideScreenBlock h3 {
+			font-size: 1em;
+			font-weight: 100;
+	}
     
 
     /* панель навигации на странице */
