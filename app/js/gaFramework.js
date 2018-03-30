@@ -110,28 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		elem.style.transform = `translateY(${translate}px)`;
 	});
 
-
-	function readSvg(file) {
-		let rawFile = new XMLHttpRequest();
-		rawFile.open("GET", file, false);
-		rawFile.onload = function () {
-			if (rawFile.status == "200") {svg = rawFile.responseText;
-			} else {svg = null;}
-		};
-		rawFile.send(null);
-		if (svg) {return svg;
-		} else {return "";}
-	}
-    
-	window.onload = fqSA(".fi", function (svgIcon) {
-		iconName = svgIcon.dataset.icon;
-		iconPath = "/img/fa/" + iconName + ".svg";
-		let newSvg = document.createElement("span");
-		newSvg.innerHTML = readSvg(iconPath);
-		newSvg.classList.add("fi");
-		svgIcon.parentNode.replaceChild(newSvg, svgIcon);
-	});
-
 	const mobileSubmenu = qS(".mobileSubmenu");
 	const menuWrapper = qS(".menuWrapper");
 	const mainMenu = qS(".mainMenu");

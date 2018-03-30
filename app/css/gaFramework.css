@@ -640,16 +640,12 @@ header .telNumber a {
     border: 1px solid #d5d5d5;
 }
 
-.videoBlock span {
+.videoBlock svg {
     display: block;
     font-size: 96px; 
     text-align: center;
     color: var(--btnRed);
     margin: 0 auto;
-}
-
-.videoBlock svg {
-    fill: currentColor;
     transition: .3s all ease-out;
     animation: videoButton infinite 2.5s;
 }
@@ -694,7 +690,7 @@ header .telNumber a {
     width: 30%;
 }
 
-.iconTopBlocks img, .iconTopBlocks span {
+.iconTopBlocks img, .iconTopBlocks svg {
     height: 100px;
     font-size: 100px;
     color: var(--deepMain);
@@ -717,7 +713,7 @@ header .telNumber a {
     width: 40%;
 }
 
-.iconLeftBlock img, .iconLeftBlock .fi  {
+.iconLeftBlock img, .iconLeftBlock svg  {
     min-width: 100px;
     height: 100px;
     font-size: 100px;
@@ -734,7 +730,7 @@ header .telNumber a {
 }
 
 /* круглая иконка с заливкой фона - принимает fontawesome */
-.roundIcons .fi {
+.roundIcons svg {
     text-align: center;
     color: #fff;
     clip-path: circle(50% at 50% 50%);
