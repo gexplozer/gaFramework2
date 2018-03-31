@@ -1365,6 +1365,39 @@ blockquote {
     max-width: 100%;
 }
 
+ul.pagination {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+	justify-content: flex-start;
+	list-style-type: none;
+	padding: 0;
+	margin: 1em 0 !important;
+}
+
+.pagination li {
+	margin: 1em 1em 0 0;
+	border-radius: .25em;
+	border: 1px solid #bbb;
+	background-color: #eee;
+}
+
+.pagination li.active {
+	background-color: var(--deepMain);
+}
+
+.pagination li a, .pagination li span {
+	display: block;
+	padding: .25em .5em;
+	color: var(--fontBlack);
+	text-decoration: none !important;
+}
+
+.pagination li.active a {
+	color: var(--fontWhite);
+	cursor: default;
+}
+
 
 /* Всё кроме телефонов */
 @media (min-width : 521px) {
