@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	// Прокрутка по странице по якорям
 	fClick(".scrollButton", function (e) {
 		e.preventDefault();
-		if (qS(this.dataset.scrollto)) { qS(this.dataset.scrollto).scrollIntoView({ behavior: "smooth" }); } // считываем dsta-scrollto и едем к нему
+		if (qS(this.dataset.scrollto)) {qS(this.dataset.scrollto).scrollIntoView({behavior: "smooth"})} // считываем dsta-scrollto и едем к нему
 	});
 
 	// Инициилизируем новое окно Tingle.js для ютуб окон
@@ -51,26 +51,35 @@ document.addEventListener("DOMContentLoaded", function () {
 	});
 	const common = sendData(modalCta); // отправляем по аяксу введённые данные
 
+	// Рекурсивный поиск родителя
+	function findParent(el, selector) {
+		while ((el = el.parentElement) && !el.matches(selector));
+		return el;
+	}
+
 	//Галерея со сменой главного изображения по клику на мини-копию
 	fClick(".thumbs img", function () { // вешаем "клик" на все тамбы
-		let src = this.getAttribute("src"); // считываем дата-аттрибут нажатого
-		this.parentNode.parentNode.parentNode.querySelector(".mainImg").setAttribute("src", src); // меняем src главного изображения
+		let src = this.getAttribute("data-src"); // считываем дата-аттрибут нажатого
+		if (!src) {src = this.getAttribute("src")};
+		let closestParent = findParent(this, "#msProduct");
+		//this.parentNode.parentNode.parentNode
+		closestParent.querySelector(".mainImg").setAttribute("src", src); // меняем src главного изображения
 	});
 
 	// Табы
 	fClick(".tabButtons span", function () {
-		let thisParent = this.parentNode.parentNode.parentNode;
+		let closestParent = findParent(this, ".tabs");
 		fqSA(".tab", function (tab) { // сначала скрываем все табы
 			tab.style.display = "none";
-		}, thisParent);
-
-		qS(this.dataset.tab, thisParent).style.display = "block"; // потом показваем только выбранный
-        
+		}, closestParent);
+		qS(this.dataset.tab, closestParent).style.display = "block"; // потом показваем только выбранный
 		fqSA(".tabButtons span", function (tabButton) { // отключаем всем кнопкам класс "tabSelected"
 			tabButton.classList.remove("tabSelected");
-		}, thisParent);
+		}, closestParent);
 		this.classList.add("tabSelected"); // включаем одному "tabSelected"
 	});
+
+
 
 	// Аккордион
 	fClick(".accTitle", function () { // вешаем "клик" на все тайтлы
@@ -115,18 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
 	const mainMenu = qS(".mainMenu");
 	const menuBox = qS(".menuBox");
 	const header = qS("header");
-
-	// добавление стрелки вправо к пунктам с подменюшкой
-	const folderIcon = readSvg("/img/fa/angle-right.svg");
-	fqSA(".mainMenu>li", function (elem) {
-		if (elem.querySelector("ul")) {
-			elem.classList.add("hasSubmenu");
-			let newSvg = document.createElement("span");
-			newSvg.innerHTML = folderIcon;
-			newSvg.classList.add("menuIcon");
-			elem.appendChild(newSvg);
-		}
-	});
 
 	// переставляем меню вверх страницы
 	let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;

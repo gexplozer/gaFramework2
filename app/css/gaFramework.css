@@ -384,6 +384,14 @@ header .telNumber a {
     color: var(--midThird);
 }
 
+#msProduct .notStock {
+    color: var(--btnRed);
+}
+
+#msProduct .byOrder {
+    color: #777;
+}
+
 .priceBlock {
     margin: 22px 0;
 }
@@ -399,7 +407,18 @@ header .telNumber a {
 }
 
 .char {
-    padding-bottom: 1em;
+	  display: flex;
+		padding-bottom: 1em;
+}
+
+#msProduct .char strong{
+	  width: 40%;
+}
+
+.char ul {
+		margin: 0;
+		padding: 0 0 0 1em;
+		font-size: .8em;
 }
 
 
@@ -420,14 +439,17 @@ header .telNumber a {
     background-size: cover;
 }  
 
-.fullScreenBlock h2 {
+.fullScreenBlock h1, .fullScreenBlock h2 {
     color: var(--fontWhite);
-    font-size: 52px;
-    font-weight: 100;
     text-align: center;
     padding: 0 66px;
-    width: 80%;
     margin: 0 auto;
+}  
+
+.fullScreenBlock h2 {
+    font-size: 52px;
+    font-weight: 100;
+    width: 80%;
 }
 
 .fullScreenBlock button {
@@ -672,7 +694,7 @@ header .telNumber a {
     flex-flow: column;
     justify-content: center;
     align-content: center;
-    margin: 0 auto;
+    margin: 0 auto 2em;
     width: 35vw;
     height: 50vh;
     cursor: pointer;
@@ -1083,6 +1105,7 @@ header .telNumber a {
     max-width: 100%;
     padding: 0;
     list-style: none;
+    overflow: hidden;
 }
 
 .accordion > li {
@@ -1268,10 +1291,26 @@ span.fi {
     fill: currentColor;
 }
 
+.articlesPage  {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+		margin-bottom: 2em;
+}
+
+.articlesPage>div  {
+		width: 70%;
+}
+
+.articlesPage>aside  {
+		width: 30% !important;
+}
+
 .article {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: flex-start;
+		margin-bottom: 2em;
 }
 
 .article article {
@@ -1279,6 +1318,10 @@ span.fi {
     width: 75%;
     padding-right: 3em;
     line-height: 1.56;
+}
+
+.articlesPage article {
+    width: 100% !important;
 }
 
 .article .title {
@@ -1326,7 +1369,7 @@ blockquote {
     text-decoration: none !important;
 }
 
-.article aside {
+.article aside, .articlesPage aside {
     display: flex;
     flex-flow: column wrap;
     position: sticky;
@@ -1334,16 +1377,16 @@ blockquote {
     top: 3em;
 }
 
-.article aside a {
+.article aside a, .articlesPage aside a {
     padding: .3em 0;
     text-decoration: none !important;
 }
 
-.article aside > div {
+.article aside > div, .articlesPage aside > div {
     width: 100%;
 }
 
-.article .seeAlso {
+.article .seeAlso, .articlesPage .seeAlso {
     display: flex;
     flex-flow: column wrap;
     padding: 1em 2em;
@@ -2311,11 +2354,4 @@ ul.pagination {
     overflow-x: auto;
 }
 
-.horizontal div {
-    display: flex;
-    flex-flow: row nowrap;
-}
-
-.horizontal span {
-    flex-shrink: 0;
-}
+.horizontal 

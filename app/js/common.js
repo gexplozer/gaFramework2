@@ -17,7 +17,7 @@ function sendData(modalCta) {
 			modalCta.open();
 			modalCta.setContent(message); // Отправили сообщение юзеру
 			setTimeout(function () { modalCta.close(); }, timeOut);
-			if (common.callback()) common.callback();
+			if (common.callback) common.callback();
 			//var yId = "yaCounter45210351";
 			//yId.reachGoal('ZAKAZANO');
 		},
