@@ -62,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		let src = this.getAttribute("data-src"); // считываем дата-аттрибут нажатого
 		if (!src) {src = this.getAttribute("src")};
 		let closestParent = findParent(this, "#msProduct");
-		//this.parentNode.parentNode.parentNode
 		closestParent.querySelector(".mainImg").setAttribute("src", src); // меняем src главного изображения
 	});
 
@@ -83,16 +82,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// Аккордион
 	fClick(".accTitle", function () { // вешаем "клик" на все тайтлы
-		let thisParent = this.parentNode.parentNode;
-		fqSA(".accTitle", function (el) { el.classList.remove("active"); }, thisParent); // удаляем у всех класс "актив"
+		let closestParent = findParent(this, ".accordion");
+		fqSA(".accTitle", function (el) { el.classList.remove("active"); }, closestParent); // удаляем у всех класс "актив"
 		elem = this.nextElementSibling; // paragraph, который сейчас надо показать
 		if (elem.style.maxHeight) { // если блок итак раскрыт, то закрываем его и все остальные
-			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, thisParent);
+			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, closestParent);
             
 		} else { // если блок закрыт - раскрываем, закрывая попутно все остальные
-			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, thisParent);
+			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, closestParent);
 			elem.style.maxHeight = elem.scrollHeight + "px"; // высота показываемого блока
-			elem.previousElementSibling.classList.add("active"); // добаляем нажатому иконку "минус"
+			this.classList.add("active"); // добаляем нажатому иконку "минус"
 		}
 	});
 
@@ -119,11 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		elem.style.transform = `translateY(${translate}px)`;
 	});
 
-	const mobileSubmenu = qS(".mobileSubmenu");
-	const menuWrapper = qS(".menuWrapper");
-	const mainMenu = qS(".mainMenu");
-	const menuBox = qS(".menuBox");
-	const header = qS("header");
+	const mobileSubmenu = qS(".mobileSubmenu"),
+				menuWrapper = qS(".menuWrapper"),
+				mainMenu = qS(".mainMenu"),
+				menuBox = qS(".menuBox"),
+				header = qS("header");
 
 	// переставляем меню вверх страницы
 	let sW = (window.innerWidth > 0) ? window.innerWidth : screen.width;
