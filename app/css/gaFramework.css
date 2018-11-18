@@ -1515,6 +1515,10 @@ ul.pagination {
 	width: 32%;
 	box-shadow: var(--shadow);
 	padding: 1em .5em 0;
+	background-image: url(img/quotes.svg);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: 100px;
 }
 
 .feedback img {
@@ -2072,10 +2076,12 @@ ul.pagination {
     }
 
     .plitka a {
+				height: auto;
         width: 45%;
     }
 
     .plitka span {
+				position: relative;
         bottom: 0;
         padding: .3em;
         font-size: .8em;
@@ -2455,5 +2461,16 @@ ul.pagination {
 
 		.articleLinks .linkCard .date, .articleLinks .linkCard h3 {
 			padding-bottom: .75em;
+		}
+
+		.feedbacks {
+			flex-flow: column;
+			width: 100%;
+		}
+
+		.feedback {
+			flex-flow: column;
+			width: 100%;
+			margin: 0 0 1em 0;
 		}
 }
