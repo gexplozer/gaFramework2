@@ -34,6 +34,10 @@ body {
     overflow: hidden;
 }
 
+section {
+		margin-bottom: 44px;
+	}
+
 h1 {
     font-size: 60px;
     border-bottom: 1px solid #e3e3e3;
@@ -58,7 +62,7 @@ h1, h2 {
 		color: var(--fontBlack);
 }
 
-span, .pageNavigatorPanel *, .ctaBlock * {
+.pageNavigatorPanel *, .ctaBlock * {
      -moz-user-select: none;
      user-select: none;
 }
@@ -651,7 +655,8 @@ header .telNumber a {
     flex-flow: row wrap;
     justify-content: center;
     text-align: center;
-    max-width: var(--wrapperWidth);
+		max-width: var(--wrapperWidth);
+		margin-bottom: 44px;
 }
 
 .plitka a {
@@ -1010,7 +1015,6 @@ header .telNumber a {
     flex-flow: row;
     align-items: center;
     justify-content: space-between;
-    margin: 3em 0 4em 0;
 }
 
 .imgRightSide {
@@ -1447,7 +1451,8 @@ ul.pagination {
 	position: relative;
 	box-shadow: var(--shadow);
 	justify-content: space-between;
-	padding: 3em 2em;
+	align-content: stretch;
+	padding: 3em 2em 2em;
 	margin-bottom: 44px;
 }
 
@@ -1465,7 +1470,9 @@ ul.pagination {
 .articleLinks .linkCard {
 	display: flex;
 	flex-flow: column nowrap;
+	align-items: flex-start;
 	width: calc(33.3% - 1.5rem);
+	justify-content: space-between;
 }
 
 .articleLinks .linkCard .date {
@@ -1494,6 +1501,32 @@ ul.pagination {
 
 .articleLinks .linkCard img {
 	width: 100%;
+}
+
+.feedbacks {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+.feedback {
+	display: flex;
+	flex-flow: row nowrap;
+	width: 32%;
+	box-shadow: var(--shadow);
+	padding: 1em .5em 0;
+}
+
+.feedback img {
+	flex-shrink: 0;
+	width: 100px;
+	height: 100px;
+	margin-right: .5em;
+	clip-path: circle(50% at 50% 50%);
+}
+
+.feedback h3 {
+	margin: 0 0 .5em;
 }
 
 
@@ -1561,14 +1594,6 @@ ul.pagination {
 
     li:hover>.subMenu {
         display: block;
-    }
-
-    .imgSideBlock .sideContent {
-        padding: 0 15% 0 0;
-    }
-
-    .imgRightSide .sideContent {
-        padding: 0 0 0 15%;
     }
 }
 
@@ -2431,8 +2456,4 @@ ul.pagination {
 		.articleLinks .linkCard .date, .articleLinks .linkCard h3 {
 			padding-bottom: .75em;
 		}
-}
-
-.horizontal {
-    overflow-x: auto;
 }
