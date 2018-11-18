@@ -86,14 +86,19 @@ document.addEventListener("DOMContentLoaded", function () {
 		fqSA(".accTitle", function (el) { el.classList.remove("active"); }, closestParent); // удаляем у всех класс "актив"
 		elem = this.nextElementSibling; // paragraph, который сейчас надо показать
 		if (elem.style.maxHeight) { // если блок итак раскрыт, то закрываем его и все остальные
-			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, closestParent);
-            
+			fqSA(".accTitle+div", function (el) {el.style.maxHeight = null; }, closestParent);
 		} else { // если блок закрыт - раскрываем, закрывая попутно все остальные
+			this.classList.add("active"); // добаляем нажатому иконку "минус"
 			fqSA(".accTitle+div", function (el) { el.style.maxHeight = null; }, closestParent);
 			elem.style.maxHeight = elem.scrollHeight + "px"; // высота показываемого блока
-			this.classList.add("active"); // добаляем нажатому иконку "минус"
 		}
 	});
+
+	fqSA(".accTitle + div", function(elem){
+		elem.addEventListener("transitionend", function (e) {
+			console.log(e);
+		})
+	})
 
 	// свёрнутый блок с кнопкой для открытия
 	fClick(".openButton", function () {

@@ -1132,9 +1132,9 @@ header .telNumber a {
     transition: all .2s ease-out;
     max-height: 0;
     margin: 0;
-    line-height: 1.5;
+		line-height: 1.5;
+		overflow: hidden;
 }
-
 .accordion .active:after {
     content: "\2796"; /* Unicode character for "minus" sign (-) */
 }
@@ -1415,7 +1415,7 @@ ul.pagination {
 	justify-content: flex-start;
 	list-style-type: none;
 	padding: 0;
-	margin: 1em 0 !important;
+	margin: 1em 0 44px !important;
 }
 
 .pagination li {
@@ -1439,6 +1439,61 @@ ul.pagination {
 .pagination li.active a {
 	color: var(--fontWhite);
 	cursor: default;
+}
+
+.articleLinks {
+	display: flex;
+	flex-flow: row nowrap;
+	position: relative;
+	box-shadow: var(--shadow);
+	justify-content: space-between;
+	padding: 3em 2em;
+	margin-bottom: 44px;
+}
+
+.articleLinks p {
+	display: block;
+	position: absolute;
+	top: -1em;
+	left: 2em;
+	padding: .5em;
+	margin: 0;
+	background-color: var(--deepMain);
+	color: var(--fontWhite);
+}
+
+.articleLinks .linkCard {
+	display: flex;
+	flex-flow: column nowrap;
+	width: calc(33.3% - 1.5rem);
+}
+
+.articleLinks .linkCard .date {
+	font-size: .8em;
+	color: #333;
+	padding-bottom: 1.5em;
+}
+
+.articleLinks .linkCard h3 {
+	color: #4A90E2;
+	font-size: 1rem;
+	font-weight: 700;
+	line-height: 22px;
+	padding-bottom: 1.5em;
+	margin: 0;
+}
+
+.articleLinks .linkCard a {
+	text-decoration: none !important;
+	color: inherit;
+}
+
+.articleLinks .linkCard a:hover {
+	opacity: .67;
+}
+
+.articleLinks .linkCard img {
+	width: 100%;
 }
 
 
@@ -1893,7 +1948,7 @@ ul.pagination {
 			align-items: flex-end;
 			width: 100vw;
 			height: 37vw;
-			margin-left: calc((-100vw + var(--wrapperWidth))/2);
+			margin-left: -5vw !important;
 			color: var(--fontBlack);
 			background-color: transparent;
 			background-position: center left;
@@ -2334,6 +2389,15 @@ ul.pagination {
         margin: 0 1em;
     }
 
+		ul.pagination {
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+
+		.pagination li {
+			margin: 0;
+		}
+
     .article {
         flex-flow: column;
     }
@@ -2347,7 +2411,26 @@ ul.pagination {
 
     .article h1 {
         line-height: 1;
-    }
+		}
+		
+		.articleLinks {
+			flex-flow: column;
+			justify-content: flex-start;
+			padding: 3em 1em 0;
+		}
+		
+		.articleLinks p {
+			left: 1em;
+		}
+
+		.articleLinks .linkCard {
+			width: 100%;
+			margin-bottom: 2em;
+		}
+
+		.articleLinks .linkCard .date, .articleLinks .linkCard h3 {
+			padding-bottom: .75em;
+		}
 }
 
 .horizontal {
