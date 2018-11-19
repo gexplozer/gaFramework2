@@ -27,6 +27,7 @@
     "gulp-uglify": "^3.0.0",
     "normalize.css": "^7.0.0",
     "pump": "^2.0.0",
+    "vanilla-lazyload": "^8.17.0",
     "vinyl-ftp": "^0.6.1"
   }
 }

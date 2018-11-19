@@ -3,8 +3,21 @@ var translate = 0;
 var elem,step,iconPath,iconName;
 
 document.addEventListener("DOMContentLoaded", function () {
-	lazyload(); // прикручиваем ленивую загрузку всем изображениям с классом lazyload и data-src
-    
+	// прикручиваем ленивую загрузку всем изображениям с классом lazyitem и data-src
+	var myLazyLoad = new LazyLoad({
+		elements_selector: ".lazyitem"
+	});
+
+	// Кнопка прокрутки вверх документа
+	window.onscroll = () => {showScrollButton()};
+	let showScrollButton = () => {
+		let btn = qS("#scrollTop");
+		if (document.documentElement.scrollTop > document.documentElement.clientHeight) {
+			btn.style.opacity = .75;
+		} else {
+			btn.style.opacity = 0;
+		}
+	}
 	// Прокрутка по странице по якорям
 	fClick(".scrollButton", function (e) {
 		e.preventDefault();
@@ -107,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		else { elem.style.maxHeight = elem.scrollHeight + "px"; } // высота показываемого блока
 	});
 
-	// делаем кнопки прокрутки в галерее
+	// делаем кнопки прокрутки в галерее товара
 	fClick(".scrollBlockUp", function () {
 		let parent = this.parentNode;
 		let elem = qS(".scrollable", parent);

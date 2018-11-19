@@ -538,17 +538,18 @@ header .telNumber a {
 
 /* Прокрутка вверх страницы */
 #scrollTop {
-	position: sticky;
-	left: 0;
-	top: 85vh;
-    width: 52px;
+	display: block;
+	position: fixed;
+	opacity: 0;
+	left: 1em;
+	bottom: 1em;
+	width: 52px;
 	padding: 8px;
-    opacity: .75;
-    z-index: 100;
+	z-index: 100;
 	cursor: pointer;
-    margin-left: -76px;
 	border-radius: 	50%;
-	border: 2px solid var(--midThird);
+	border: 2px solid var(--lightMain);
+	transition: all .1s ease-in;
 }
 
 
