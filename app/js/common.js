@@ -27,7 +27,6 @@ function sendData(modalCta) {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", url, true);
 			xhr.send(data);
-			common.thankYou(); // Спасибо
 		},
 
 		sendEmail: function (data) { // отправляем почту через php
@@ -35,6 +34,7 @@ function sendData(modalCta) {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", url, true);
 			xhr.send(data);
+			common.thankYou(); // Спасибо
 		},
 
 		formsListener: function (el) { // вешаем прослушку кликов на все ЛИД-формы
